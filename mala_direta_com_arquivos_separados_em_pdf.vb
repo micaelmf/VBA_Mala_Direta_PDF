@@ -1,11 +1,11 @@
-Sub QuebraNaSeccao()
+Sub BreakOnSection()
     Dim Arquivo As Integer
     Dim CaminhoArquivo As String
     Dim TextoProximaLinha As String
     
 	'Set reading the file that contains the names of files that will be generated.
     Arquivo = FreeFile
-    CaminhoArquivo = "F:\Documentos\Certificados\participantes.txt"
+    CaminhoArquivo = "F:\Documentos\Evento\participantes.txt"
  
     'Open file for reading.
     Open CaminhoArquivo For Input As Arquivo
@@ -35,7 +35,7 @@ Sub QuebraNaSeccao()
 		'Removes the break that is copied at the end of the section, if any.
 		Selection.MoveUp Unit:=wdLine, Count:=1, Extend:=wdExtend
 		Selection.Delete Unit:=wdCharacter, Count:=1
-		ChangeFileOpenDirectory "F:\Documentos\Certificados Flisol 2016\Certificados\"
+		ChangeFileOpenDirectory "F:\Documentos\Evento\Certificados\"
      
 		'It makes the line reading
 		Line Input #Arquivo, TextoProximaLinha
@@ -43,7 +43,7 @@ Sub QuebraNaSeccao()
      
 		'Export to .pdf and customize the file name to the line that was read
 		 ActiveDocument.ExportAsFixedFormat OutputFileName:= _
-		"F:\Documentos\Certificados Flisol 2016\Certificados\" & TextoProximaLinha & ".pdf" _
+		"F:\Documentos\Evento\Certificados\" & TextoProximaLinha & ".pdf" _
 		, ExportFormat:=wdExportFormatPDF, OpenAfterExport:=False, OptimizeFor:= _
 		wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, To:=1, _
 		Item:=wdExportDocumentContent, IncludeDocProps:=True, KeepIRM:=True, _
